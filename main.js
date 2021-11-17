@@ -20,6 +20,7 @@ function playRound(playerSelection, computerSelection) {
     
     // put playerSelection in lowercase
     let playerChoice = playerSelection.toLowerCase();
+
     switch (true) {
         case (playerChoice == "paper" && computerSelection == "rock"):
             return "You win! Paper beats Rock";
@@ -54,3 +55,18 @@ function playRound(playerSelection, computerSelection) {
 const playerSelection = "paper";
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
+
+
+function game() {
+    // Create counters to store each round's winner and initialize to 0
+    let playerWins = 0;
+    let computerWins = 0;
+
+    // Loop through the rounds and store a winner for each round
+    for (let i = 1; i <= 5; i++) {
+        playRound(i);
+        
+        i++;
+    }
+
+}
