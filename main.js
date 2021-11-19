@@ -1,4 +1,4 @@
-// Create a function called computerPlay
+// Create a function that randomize's the computer's selection
 function computerPlay() {
     // Create an array to hold the 3 options
     let choices = ["rock", "paper", "scissors"];
@@ -11,62 +11,95 @@ function computerPlay() {
     return computerResponse;
     }
 
-// computerPlay();
-// console.log(computerPlay());
 
+// Initialize variables to track wins for each round
+let playerWins = 0;
+let computerWins = 0;
 
-// Create a function called playRound
-function playRound(playerSelection, computerSelection) {
+// Create a function called playRound to play a single round
+function playRound() {
     
-    // put playerSelection in lowercase
-    let playerChoice = playerSelection.toLowerCase();
+    // Create variables to store each hand
+    let playerSelection = prompt("Enter your choice: ").toLowerCase();
+    let computerSelection = computerPlay();
+    
 
-    switch (true) {
-        case (playerChoice == "paper" && computerSelection == "rock"):
-            return "You win! Paper beats Rock";
-            break;
-        
-        case (playerChoice == "scissors" && computerSelection == "paper"):
-            return "You win! Scissors beats Paper";
-            break;
-        
-        case (playerChoice == "rock" && computerSelection == "scissors"):
-            return "You win! Rock beats Scissors";
-            break;
-        
-        case (playerChoice == "rock" && computerSelection == "paper"):
-            return "You lose! Paper beats Rock";
-            break;
-        
-        case (playerChoice == "paper" && computerSelection == "scissors"):
-            return "You lose! Scissors beats Paper";
-            break;
-        
-        case (playerChoice == "scissors" && computerSelection == "rock"):
-            return "You lose! Rock beats Scissors";
-            break;
-        
-        default:
-            return "It's a tie!";
+    console.log("Player: ", playerSelection);
+    console.log("Computer: ", computerSelection);
 
+    // Create if statements for all the hand scenarios
+
+    if (playerSelection == computerSelection) {
+        console.log("It's a tie!");
+        console.log("ComputerWins: ", computerWins);
+        console.log("PlayerWins: ", playerWins);
+    }
+    else if (playerSelection == "rock") {
+        if (computerSelection == "paper") {
+            console.log("You lose! Paper eats rock");
+            computerWins++;
+            console.log("ComputerWins: ", computerWins);
+            console.log("PlayerWins: ", playerWins);
+        }
+        else if (computerSelection == "scissors") {
+            console.log("You win! Rock beats scissors");
+            playerWins++;
+            console.log("ComputerWins: ", computerWins);
+            console.log("PlayerWins: ", playerWins);
+        }
+    }
+    else if (playerSelection == "paper") {
+        if (computerSelection == "rock") {
+            console.log("You win! Paper eats rock");
+            playerWins++;
+            console.log("ComputerWins: ", computerWins);
+            console.log("PlayerWins: ", playerWins);
+        }
+        else if (computerSelection == "scissors") {
+            console.log("You lose! Scissors cuts paper");
+            computerWins++;
+            console.log("ComputerWins: ", computerWins);
+            console.log("PlayerWins: ", playerWins);
+
+        }
+    }
+    else if (playerSelection == "scissors") {
+        if (computerSelection == "paper") {
+            console.log("You win! Scissors cuts paper");
+            playerWins++;
+            console.log("ComputerWins: ", computerWins);
+            console.log("PlayerWins: ", playerWins);
+        }
+        else if (computerSelection == "rock") {
+            console.log("You lose! Rock beats scissors");
+            computerWins++;
+            console.log("ComputerWins: ", computerWins);
+            console.log("PlayerWins: ", playerWins);
+        }
     }
 }
-
-const playerSelection = "paper";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
-
 
 function game() {
-    // Create counters to store each round's winner and initialize to 0
-    let playerWins = 0;
-    let computerWins = 0;
 
-    // Loop through the rounds and store a winner for each round
-    for (let i = 1; i <= 5; i++) {
-        playRound(i);
-        
-        i++;
+     // Iterate through 5 rounds in a loop and store scores, calling the playRound function
+     for (let i = 1; i <= 5; i++) {
+        console.log("Round: ", i)
+        playRound();
+     }
+    // Call winner function inside the game function. 
+     winner();
+
+     // Compare tallies and deliver a winner
+    function winner() {
+        if (playerWins > computerWins) {
+            console.log("You win the series!");
+        }
+        else if (playerWins == computerWins) {
+            console.log("Tie series!");
+        }
+        else {
+            console.log("Sorry you lost the series");
+        }
     }
-
-}
+ }
+game();
