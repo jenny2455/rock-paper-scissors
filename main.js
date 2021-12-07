@@ -79,6 +79,7 @@ function playRound() {
     }
 }
 
+// Create a function that plays a game of 5 rounds
 function game() {
 
      // Iterate through 5 rounds in a loop and store scores, calling the playRound function
@@ -88,18 +89,19 @@ function game() {
      }
     // Call winner function inside the game function. 
      winner();
-
-     // Compare tallies and deliver a winner
-    function winner() {
-        if (playerWins > computerWins) {
-            console.log("You win the series!");
-        }
-        else if (playerWins == computerWins) {
-            console.log("Tie series!");
-        }
-        else {
-            console.log("Sorry you lost the series");
-        }
+     
+}
+ 
+// Compare tallies and deliver a winner
+function winner() {
+    if (playerWins > computerWins) {
+        console.log("You win the series!");
     }
- }
+    else if (playerWins == computerWins) {
+        console.log("Tie series!");
+    }
+    else {
+        console.log("Sorry you lost the series");
+    }
+}
 game();
