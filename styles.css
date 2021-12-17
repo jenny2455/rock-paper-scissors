@@ -1,0 +1,136 @@
+img {
+    height: 250px;
+    width: auto;
+}
+
+h1 {
+    text-align: center;
+    color: greenyellow;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+body {
+    background-color: black;
+}
+
+.rules {
+    background-color:lightgreen;
+    border: 5px solid green;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-align: center;
+    /* padding: 5px; */
+}
+
+.buttons {
+    display: flex;
+    justify-content: left;
+    margin-left: 100px;
+    gap: 15px;
+}
+
+button {
+    font-size: 15px;
+    color: black;
+    background-color: teal;
+    padding: 0px 32px;
+    border-radius: 8px;
+    border: 5px solid green;
+}
+
+#container {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 30px;
+    color: green;
+}
+
+#winner {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+}
+
+#images {
+    display: flex;
+    justify-content: space-around;
+    
+    margin: 10px;
+}
+
+.title {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+}
+
+.titles {
+    display: flex;
+    justify-content: space-around;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid blue;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: black;
+}
+
+.modal-header .close-button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 10px 15px;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0, .5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    pointer-events: all;
+    opacity: 1;
+}
